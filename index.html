@@ -664,6 +664,9 @@
             letter-spacing: -0.5px;
             position: relative;
             z-index: 1;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
         }
 
         .parts-cta__text {
@@ -1233,15 +1236,16 @@
             .logo__name { font-size: 22px; }
             .logo__icon { width: 46px; height: 46px; }
 
+            /* Мобильное меню — приклеено к низу шапки, без зазоров */
             .nav {
-                position: fixed;
-                top: var(--header-h);
+                position: absolute;
+                top: 100%;
                 left: 0;
                 right: 0;
                 width: 100%;
                 height: auto;
                 max-height: calc(100vh - var(--header-h) - 24px);
-                background: rgba(10, 10, 12, 0.99);
+                background: #08080a;
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
@@ -1257,8 +1261,14 @@
                 overflow-y: auto;
                 z-index: 10;
                 margin: 0;
+                pointer-events: none;
+                visibility: hidden;
             }
-            .nav.active { transform: translateY(0); }
+            .nav.active {
+                transform: translateY(0);
+                pointer-events: auto;
+                visibility: visible;
+            }
 
             .nav__link {
                 display: block;
@@ -1298,7 +1308,8 @@
             .cta__title { font-size: 28px; }
 
             .parts-cta__box { padding: 36px 24px; }
-            .parts-cta__title { font-size: 28px; }
+            .parts-cta__title { font-size: 26px; }
+            .parts-cta__text { font-size: 15px; }
 
             .footer__inner { flex-direction: column; text-align: center; }
             .footer__links { justify-content: center; flex-wrap: wrap; }
@@ -1331,7 +1342,14 @@
             .price-row { padding: 12px 14px; }
             .price-row__name { font-size: 13px; }
             .price-row__value { font-size: 13px; }
-            .parts-cta__btn { width: 100%; justify-content: center; }
+
+            .parts-cta__box { padding: 30px 18px; }
+            .parts-cta__title { font-size: 22px; }
+            .parts-cta__btn { width: 100%; justify-content: center; font-size: 15px; padding: 14px 24px; }
+        }
+
+        @media (max-width: 360px) {
+            .parts-cta__title { font-size: 20px; }
         }
 
         .reveal {
@@ -1830,9 +1848,6 @@
         const toast = document.getElementById('toast');
 
         // ============ ОТПРАВКА ФОРМЫ НА ПОЧТУ ============
-        // Используется сервис FormSubmit.co — бесплатный, без регистрации.
-        // ВАЖНО: при первой отправке на vasilevsky.alexey@yandex.ru придёт письмо
-        // со ссылкой для активации. Нужно перейти по ней один раз — и заявки начнут приходить.
         const FORM_EMAIL = 'vasilevsky.alexey@yandex.ru';
 
         // ============ ДАННЫЕ ПРАЙС-ЛИСТОВ ============
@@ -2022,7 +2037,6 @@
             const car = document.getElementById('car').value;
             const message = document.getElementById('message').value;
 
-            // Блокируем кнопку, чтобы не было двойных отправок
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправляем...';
