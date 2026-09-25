@@ -316,6 +316,50 @@
         .burger.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
         .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+        /* ============ SCROLL TO TOP ============ */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1500;
+            box-shadow: 0 8px 28px rgba(255, 59, 59, 0.5);
+            opacity: 0;
+            transform: translateY(20px) scale(0.85);
+            transition: opacity 0.35s, transform 0.35s, background 0.3s;
+            padding: 0;
+        }
+
+        .scroll-top svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .scroll-top.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .scroll-top:active {
+            background: var(--accent-hover);
+            transform: translateY(0) scale(0.94);
+        }
+
         /* ============ HERO ============ */
         .hero {
             min-height: 100vh;
@@ -658,7 +702,7 @@
 
         .parts-cta__title {
             font-family: var(--font-heading);
-            font-size: 56px;
+            font-size: 36px;
             font-weight: 700;
             margin-bottom: 14px;
             letter-spacing: -0.5px;
@@ -1346,6 +1390,14 @@
             .parts-cta__box { padding: 30px 18px; }
             .parts-cta__title { font-size: 22px; }
             .parts-cta__btn { width: 100%; justify-content: center; font-size: 15px; padding: 14px 24px; }
+
+            .scroll-top {
+                width: 48px;
+                height: 48px;
+                bottom: 18px;
+                right: 18px;
+            }
+            .scroll-top svg { width: 20px; height: 20px; }
         }
 
         @media (max-width: 360px) {
@@ -1532,7 +1584,7 @@
         <div class="container">
             <div class="parts-cta__box reveal">
                 <span class="section-tag">Запчасти</span>
-                <h3 class="parts-cta__title">Интересуют запчасти?</h3>
+                <h3 class="parts-cta__title">Заинтересовали запчасти?</h3>
                 <p class="parts-cta__text">Переходите на наш сайт по продаже автозапчастей на Дроме — большой выбор оригинальных деталей и качественных аналогов, честные цены и быстрая доставка.</p>
                 <a href="https://baza.drom.ru/user/DVSservis/#center=113.43130090805822%2C52.02032407870683&zoom=16" target="_blank" rel="noopener" class="btn-primary parts-cta__btn">
                     🛒 Перейти на Дром
@@ -1791,6 +1843,13 @@
         </div>
     </footer>
 
+    <!-- ============ SCROLL TO TOP ============ -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
     <!-- ============ MODAL: ЗАПИСЬ ============ -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
@@ -1846,6 +1905,7 @@
         const modalOverlay = document.getElementById('modalOverlay');
         const priceModal = document.getElementById('priceModal');
         const toast = document.getElementById('toast');
+        const scrollTopBtn = document.getElementById('scrollTop');
 
         // ============ ОТПРАВКА ФОРМЫ НА ПОЧТУ ============
         const FORM_EMAIL = 'vasilevsky.alexey@yandex.ru';
@@ -1980,13 +2040,28 @@
         window.addEventListener('resize', updateHeaderHeight);
         window.addEventListener('load', updateHeaderHeight);
 
-        // ============ HEADER SCROLL ============
+        // ============ HEADER SCROLL + SCROLL TO TOP ============
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            // Показываем стрелку "наверх" после 300px прокрутки
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // ============ SCROLL TO TOP CLICK ============
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // ============ BURGER MENU ============
