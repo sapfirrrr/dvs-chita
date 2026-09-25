@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ДВС Сервис — Автосервис в Чите | Ремонт двигателей и авто</title>
-    <meta name="description" content="ДВС Сервис — профессиональный автосервис в Чите. Ремонт двигателей, ходовой, диагностика. Адрес: Советская улица, 14/744. Тел: +7 914 447-69-96">
+    <meta name="description" content="ДВС Сервис — профессиональный автосервис в Чите. Ремонт двигателей, ходовой, электрики, диагностика. Адрес: Советская улица, 14/744. Тел: +7 914 447-69-96">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Russo+One&family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
@@ -745,6 +745,7 @@
             font-weight: 700;
             font-size: 18px;
             color: var(--accent);
+            flex-shrink: 0;
         }
 
         .review-card__name { font-weight: 600; font-size: 16px; }
@@ -818,9 +819,10 @@
         .cta__contact {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
             align-items: flex-start;
             text-align: left;
+            line-height: 1.25;
         }
 
         .cta__contact-label {
@@ -1297,7 +1299,7 @@
                     Ремонт <span class="highlight">двигателей</span> и ходовой части авто в Чите
                 </h1>
                 <p class="hero__subtitle">
-                    Профессиональный автосервис полного цикла. Диагностика, ремонт ДВС, ходовой. Гарантия на все виды работ до 12 месяцев, на запасные части до 24 месяцев.
+                    Профессиональный автосервис полного цикла. Диагностика, ремонт ДВС, ходовой, электрики. Гарантия на все виды работ до 12 месяцев, на запасные части до 24 месяцев.
                 </p>
                 <div class="hero__actions">
                     <button class="btn-primary" onclick="openModal()">
@@ -1395,6 +1397,15 @@
                         <div class="service-card__more">Прайс →</div>
                     </div>
                 </div>
+                <div class="service-card service-card--no-price reveal reveal-delay-3">
+                    <img src="img/car9.jpg" alt="Эвакуация автомобиля" class="service-card__image">
+                    <h3 class="service-card__title">Эвакуация автомобиля</h3>
+                    <p class="service-card__text">Круглосуточная эвакуация авто по Чите и краю. Быстрая подача, аккуратная погрузка и доставка в сервис.</p>
+                    <div class="service-card__footer">
+                        <div class="service-card__price">по запросу</div>
+                        <a href="tel:+79141414243" class="service-card__more">📞 Позвонить →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1474,7 +1485,7 @@
         <div class="container">
             <span class="section-tag">04 / Отзывы</span>
             <h2 class="section-title">Что говорят клиенты</h2>
-            <p class="section-subtitle">Реальные отзывы наших клиентов с 2ГИС.</p>
+            <p class="section-subtitle">Реальные отзывы наших клиентов с 2ГИС и Яндекса.</p>
             <div class="reviews-grid">
                 <div class="review-card reveal">
                     <div class="review-card__header">
@@ -1509,6 +1520,39 @@
                     <div class="review-card__stars">★★★★★</div>
                     <p class="review-card__text">«Отличный сто обращался по прокачки передних стоек 18.09.2025 сделали быстро и недорого спасибо Ивану!»</p>
                 </div>
+                <div class="review-card reveal reveal-delay-3">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">К</div>
+                        <div>
+                            <div class="review-card__name">Кирилл И.</div>
+                            <div class="review-card__car">Настройка зажигания</div>
+                        </div>
+                    </div>
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Отличный сервис. Специалисты грамотные, давно таких не встречал. Приезжал настроить зажигание, сделали все быстро, да и по цене не дорого. Рекоменду данную сто. Всех благ и процветание вам.»</p>
+                </div>
+                <div class="review-card reveal reveal-delay-3">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">Ю</div>
+                        <div>
+                            <div class="review-card__name">Юлия К.</div>
+                            <div class="review-card__car">Постоянный клиент</div>
+                        </div>
+                    </div>
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Самый лучший сервис в городе! Делают быстро, но качественно! Цены по сравнению с другими не кусаются! Ребята профессионалы! Отдельное спасибо Ивану и Алексею! Процветания Вам!»</p>
+                </div>
+                <div class="review-card reveal reveal-delay-4">
+                    <div class="review-card__header">
+                        <div class="review-card__avatar">М</div>
+                        <div>
+                            <div class="review-card__name">Михаил У.</div>
+                            <div class="review-card__car">Toyota Mark II 110</div>
+                        </div>
+                    </div>
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">«Делал ходовую в круг на Марк 2 110. Сделали все чётко, цены на 20-30 т.р. дешевле чем у других, запчасти качественные — езжу уже пол года без нареканий.»</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1518,7 +1562,7 @@
         <div class="container">
             <div class="cta__box reveal">
                 <h3 class="cta__title">Готовы записаться на ремонт?</h3>
-                <p class="cta__text">Позвоните в автосервис или магазин запчастей, либо оставьте заявку — перезвоним вам в ближайшее время.</p>
+                <p class="cta__text">Позвоните в автосервис, магазин запчастей или эвакуатор — либо оставьте заявку, перезвоним в течение 15 минут.</p>
                 <div class="cta__actions">
                     <a href="tel:+79144476996" class="btn-primary">
                         <div class="cta__contact">
@@ -1530,6 +1574,12 @@
                         <div class="cta__contact">
                             <span class="cta__contact-label">🛒 Магазин запчастей</span>
                             <span class="cta__contact-value">8 964 467-69-96</span>
+                        </div>
+                    </a>
+                    <a href="tel:+79141414243" class="btn-primary">
+                        <div class="cta__contact">
+                            <span class="cta__contact-label">🚛 Эвакуатор</span>
+                            <span class="cta__contact-value">+7 914 141-42-43</span>
                         </div>
                     </a>
                     <button class="btn-outline" onclick="openModal()">Оставить заявку</button>
@@ -1565,6 +1615,13 @@
                         <div>
                             <div class="contact-info__label">Магазин автозапчастей</div>
                             <div class="contact-info__value"><a href="tel:+79644676996">8 964 467-69-96</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info__item reveal reveal-delay-2">
+                        <div class="contact-info__icon">🚛</div>
+                        <div>
+                            <div class="contact-info__label">Эвакуатор</div>
+                            <div class="contact-info__value"><a href="tel:+79141414243">+7 914 141-42-43</a></div>
                         </div>
                     </div>
                     <div class="contact-info__item reveal reveal-delay-2">
