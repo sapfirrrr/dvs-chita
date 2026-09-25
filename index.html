@@ -99,19 +99,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
             position: relative;
             z-index: 60;
         }
 
         .logo__icon {
-            width: 44px;
-            height: 44px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 22px var(--accent-glow);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -124,18 +124,18 @@
 
         .logo:hover .logo__icon {
             transform: scale(1.05);
-            box-shadow: 0 0 30px var(--accent-glow);
+            box-shadow: 0 0 34px var(--accent-glow);
         }
 
         .logo__text {
             display: flex;
             flex-direction: column;
-            line-height: 1.1;
+            line-height: 1.05;
         }
 
         .logo__name {
             font-family: var(--font-heading);
-            font-size: 20px;
+            font-size: 26px;
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: 0.5px;
@@ -144,25 +144,26 @@
         .logo__name span { color: var(--accent); }
 
         .logo__city {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-secondary);
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
+            margin-top: 2px;
         }
 
         .nav {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 28px;
             position: relative;
             z-index: 60;
         }
 
         .nav__link {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
             letter-spacing: 0.3px;
             transition: color 0.3s;
             position: relative;
@@ -180,29 +181,40 @@
             border-radius: 2px;
         }
 
-        .nav__link:hover { color: var(--text-primary); }
+        .nav__link:hover { color: var(--accent); }
         .nav__link:hover::after { width: 100%; }
 
         .nav__phone {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
+            color: #fff;
+            font-weight: 700;
             font-size: 15px;
-            transition: color 0.3s;
             white-space: nowrap;
+            background: var(--accent);
+            padding: 11px 22px;
+            border-radius: 50px;
+            box-shadow: 0 4px 16px var(--accent-glow);
+            transition: all 0.3s;
+            letter-spacing: 0.2px;
         }
 
         .nav__phone svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--accent);
+            width: 16px;
+            height: 16px;
+            fill: #fff;
             transition: transform 0.3s;
         }
 
-        .nav__phone:hover { color: var(--accent); }
+        .nav__phone:hover {
+            background: var(--accent-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 59, 59, 0.55);
+        }
+
         .nav__phone:hover svg { transform: rotate(-15deg) scale(1.1); }
 
         .btn-primary {
@@ -605,10 +617,78 @@
             color: var(--accent);
         }
 
+        /* ============ PARTS CTA ============ */
+        .parts-cta {
+            padding: 80px 0;
+            background: var(--bg-card);
+            position: relative;
+        }
+
+        .parts-cta__box {
+            background: linear-gradient(135deg, #1a0a0a 0%, #0a0a0c 100%);
+            border: 1px solid rgba(255, 59, 59, 0.3);
+            border-radius: var(--radius);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parts-cta__box::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 59, 59, 0.15) 0%, transparent 70%);
+            top: -150px;
+            left: -150px;
+            pointer-events: none;
+        }
+
+        .parts-cta__box::after {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(255, 120, 50, 0.1) 0%, transparent 70%);
+            bottom: -130px;
+            right: -130px;
+            pointer-events: none;
+        }
+
+        .parts-cta__title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .parts-cta__text {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .parts-cta__btn {
+            position: relative;
+            z-index: 1;
+            font-size: 16px;
+            padding: 16px 36px;
+            font-weight: 700;
+        }
+
         /* ============ ADVANTAGES ============ */
         .advantages {
             padding: 100px 0;
-            background: var(--bg-card);
+            background: var(--bg-dark);
             position: relative;
             overflow: hidden;
         }
@@ -659,7 +739,7 @@
         }
 
         /* ============ FEATURES ============ */
-        .features { padding: 100px 0; background: var(--bg-dark); }
+        .features { padding: 100px 0; background: var(--bg-card); }
 
         .features-list {
             display: flex;
@@ -673,7 +753,7 @@
             display: flex;
             gap: 16px;
             padding: 20px 24px;
-            background: var(--bg-card);
+            background: var(--bg-dark);
             border-radius: var(--radius-sm);
             border: 1px solid var(--border);
             transition: all var(--transition);
@@ -704,7 +784,7 @@
         .feature-item__text { font-size: 14px; color: var(--text-secondary); }
 
         /* ============ REVIEWS ============ */
-        .reviews { padding: 100px 0; background: var(--bg-card); position: relative; }
+        .reviews { padding: 100px 0; background: var(--bg-dark); position: relative; }
 
         .reviews-grid {
             display: grid;
@@ -713,7 +793,7 @@
         }
 
         .review-card {
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 28px;
@@ -1135,6 +1215,13 @@
             .hero__right { right: -200px; font-size: 250px; }
             .hero__title { font-size: 44px; }
             .contacts-grid { grid-template-columns: 1fr; }
+            .nav { gap: 20px; }
+            .nav__link { font-size: 15px; }
+            .logo__name { font-size: 23px; }
+        }
+
+        @media (max-width: 900px) {
+            .nav__link { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -1142,6 +1229,9 @@
             .header.scrolled {
                 padding: 14px 0;
             }
+
+            .logo__name { font-size: 22px; }
+            .logo__icon { width: 46px; height: 46px; }
 
             .nav {
                 position: fixed;
@@ -1171,8 +1261,9 @@
             .nav.active { transform: translateY(0); }
 
             .nav__link {
+                display: block;
                 font-size: 16px;
-                font-weight: 500;
+                font-weight: 600;
                 width: 100%;
                 padding: 16px 4px;
                 border-bottom: 1px solid var(--border);
@@ -1185,10 +1276,9 @@
             .nav__phone {
                 font-size: 16px;
                 width: 100%;
-                padding: 22px 4px 4px;
-                margin-top: 10px;
-                border-top: 1px solid rgba(255, 59, 59, 0.35);
-                justify-content: flex-start;
+                padding: 16px 20px;
+                margin-top: 16px;
+                justify-content: center;
             }
 
             .burger { display: flex; }
@@ -1207,6 +1297,9 @@
             .cta__box { padding: 36px 24px; }
             .cta__title { font-size: 28px; }
 
+            .parts-cta__box { padding: 36px 24px; }
+            .parts-cta__title { font-size: 28px; }
+
             .footer__inner { flex-direction: column; text-align: center; }
             .footer__links { justify-content: center; flex-wrap: wrap; }
 
@@ -1215,6 +1308,10 @@
         }
 
         @media (max-width: 480px) {
+            .logo__name { font-size: 20px; }
+            .logo__icon { width: 42px; height: 42px; }
+            .logo__city { font-size: 11px; letter-spacing: 2px; }
+
             .hero__title { font-size: 28px; letter-spacing: 0; }
             .btn-primary {
                 padding: 12px 22px;
@@ -1234,6 +1331,7 @@
             .price-row { padding: 12px 14px; }
             .price-row__name { font-size: 13px; }
             .price-row__value { font-size: 13px; }
+            .parts-cta__btn { width: 100%; justify-content: center; }
         }
 
         .reveal {
@@ -1265,6 +1363,7 @@
 
             <nav class="nav" id="nav">
                 <a href="#services" class="nav__link">Услуги</a>
+                <a href="#parts" class="nav__link">Запчасти</a>
                 <a href="#advantages" class="nav__link">Преимущества</a>
                 <a href="#reviews" class="nav__link">Отзывы</a>
                 <a href="#contacts" class="nav__link">Контакты</a>
@@ -1400,12 +1499,26 @@
                 <div class="service-card service-card--no-price reveal reveal-delay-3">
                     <img src="img/car9.jpg" alt="Эвакуация автомобиля" class="service-card__image">
                     <h3 class="service-card__title">Эвакуация автомобиля</h3>
-                    <p class="service-card__text">Круглосуточная эвакуация авто по Чите и краю. Быстрая подача, аккуратная погрузка и доставка в сервис.</p>
+                    <p class="service-card__text">Эвакуация авто по Чите. Быстрая подача, аккуратная погрузка и доставка в сервис.</p>
                     <div class="service-card__footer">
                         <div class="service-card__price">по запросу</div>
                         <a href="tel:+79141414243" class="service-card__more">📞 Позвонить →</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PARTS CTA ============ -->
+    <section class="parts-cta" id="parts">
+        <div class="container">
+            <div class="parts-cta__box reveal">
+                <span class="section-tag">Запчасти</span>
+                <h3 class="parts-cta__title">Заинтересовали запчасти?</h3>
+                <p class="parts-cta__text">Переходите на наш сайт по продаже автозапчастей на Дроме — большой выбор оригинальных деталей и качественных аналогов, честные цены и быстрая доставка.</p>
+                <a href="https://baza.drom.ru/user/DVSservis/#center=113.43130090805822%2C52.02032407870683&zoom=16" target="_blank" rel="noopener" class="btn-primary parts-cta__btn">
+                    🛒 Перейти на Дром
+                </a>
             </div>
         </div>
     </section>
@@ -1652,6 +1765,7 @@
             <div class="footer__copyright">© 2026 ДВС Сервис · Автосервис в Чите</div>
             <div class="footer__links">
                 <a href="#services" class="footer__link">Услуги</a>
+                <a href="#parts" class="footer__link">Запчасти</a>
                 <a href="#advantages" class="footer__link">Преимущества</a>
                 <a href="#reviews" class="footer__link">Отзывы</a>
                 <a href="#contacts" class="footer__link">Контакты</a>
@@ -1668,19 +1782,19 @@
             <form id="bookingForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
-                    <input type="text" id="name" placeholder="Иван" required>
+                    <input type="text" id="name" name="name" placeholder="Иван" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" placeholder="+7 900 000-00-00" required>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 900 000-00-00" required>
                 </div>
                 <div class="form-group">
                     <label for="car">Автомобиль (марка, год)</label>
-                    <input type="text" id="car" placeholder="Toyota Camry, 2018" required>
+                    <input type="text" id="car" name="car" placeholder="Toyota Camry, 2018" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Что нужно сделать?</label>
-                    <textarea id="message" rows="3" placeholder="Опишите проблему или услугу..."></textarea>
+                    <textarea id="message" name="message" rows="3" placeholder="Опишите проблему или услугу..."></textarea>
                 </div>
                 <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Отправить заявку</button>
             </form>
@@ -1714,6 +1828,12 @@
         const modalOverlay = document.getElementById('modalOverlay');
         const priceModal = document.getElementById('priceModal');
         const toast = document.getElementById('toast');
+
+        // ============ ОТПРАВКА ФОРМЫ НА ПОЧТУ ============
+        // Используется сервис FormSubmit.co — бесплатный, без регистрации.
+        // ВАЖНО: при первой отправке на vasilevsky.alexey@yandex.ru придёт письмо
+        // со ссылкой для активации. Нужно перейти по ней один раз — и заявки начнут приходить.
+        const FORM_EMAIL = 'vasilevsky.alexey@yandex.ru';
 
         // ============ ДАННЫЕ ПРАЙС-ЛИСТОВ ============
         const PRICES = {
@@ -1891,21 +2011,54 @@
             }
         });
 
-        // ============ FORM ============
-        function handleSubmit(e) {
+        // ============ ОТПРАВКА ФОРМЫ (FormSubmit.co AJAX) ============
+        async function handleSubmit(e) {
             e.preventDefault();
+
+            const form = document.getElementById('bookingForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const car = document.getElementById('car').value;
             const message = document.getElementById('message').value;
 
-            console.log('Заявка:', { name, phone, car, message });
+            // Блокируем кнопку, чтобы не было двойных отправок
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляем...';
 
-            closeModal();
-            document.getElementById('bookingForm').reset();
+            try {
+                const res = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        car: car,
+                        message: message || '—',
+                        _subject: '🚗 Новая заявка с сайта ДВС Сервис',
+                        _template: 'table',
+                        _captcha: 'false'
+                    })
+                });
 
-            toast.classList.add('active');
-            setTimeout(() => toast.classList.remove('active'), 4000);
+                if (!res.ok) throw new Error('Network response was not ok');
+
+                closeModal();
+                form.reset();
+                toast.classList.add('active');
+                setTimeout(() => toast.classList.remove('active'), 4000);
+
+            } catch (err) {
+                console.error('Ошибка отправки:', err);
+                alert('Не удалось отправить заявку.\nПожалуйста, позвоните нам: +7 914 447-69-96');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
         }
 
         // ============ REVEAL ON SCROLL ============
